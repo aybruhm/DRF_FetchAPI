@@ -8,7 +8,7 @@ class Note(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        ordering = ''
+        ordering = ['timestamp']
 
     def __str__(self):
         return self.author.username
