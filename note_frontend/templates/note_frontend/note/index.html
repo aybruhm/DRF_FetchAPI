@@ -1,0 +1,48 @@
+{% block content %}
+<section class="body">
+    <div class="container">
+        <div class="head">
+            <p class="h2">
+                Fetching API from Django Rest Framework
+            </p>
+        </div>
+        <div class="overview">
+            <p class="h4">
+                An overview of the API endpoints:
+            </p>
+            <ul class="endpoints">
+                <li class="point">
+                    Get Notes:
+                    <a href="">
+                        note/
+                    </a>
+                </li>
+                <li class="point">
+                    Create Note:
+                    <a href="">
+                        note/post/
+                    </a>
+                </li>
+                <li class="point">
+                    Detail Note:
+                    <a href="">
+                        note/detail/1/
+                    </a>
+                </li>
+                <li class="point">
+                    Update Note:
+                    <a href="">
+                        note/update/1/
+                    </a>
+                </li>
+                <li class="point">
+                    Delete Note:
+                    <a href="">
+                        note/delete/1/
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+{% endblock content %}
