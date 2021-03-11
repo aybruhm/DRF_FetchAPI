@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # Apps
     'note.apps.NoteConfig',
+    'note_frontend.apps.NoteFrontendConfig',
     'rest_framework',
 ]
 
@@ -64,7 +65,7 @@ ROOT_URLCONF = 'rest_backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / "templates"],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
