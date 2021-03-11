@@ -43,6 +43,12 @@ INSTALLED_APPS = [
     'rest_framework',
 ]
 
+# CORS Configuration
+CORS_ORIGIN_WHITELIST = (
+    '*',
+)
+# CORS_ALLOW_ALL_ORIGINS = False
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -58,7 +64,7 @@ ROOT_URLCONF = 'rest_backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
