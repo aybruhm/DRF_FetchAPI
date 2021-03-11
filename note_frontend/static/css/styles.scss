@@ -1,0 +1,55 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+header.header{
+    background-color: #000;
+
+    nav.nav{
+        a.nav-link{
+            color: #fff !important;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+    }
+}
+
+section.body{
+    text-align: center;
+    padding-top: 50px;
+
+    p.h2{
+        font-size: 42px;
+        color: #000;
+        font-weight: 550;
+    }
+
+    div.overview{
+        margin-top: 30px;
+        justify-content: center;
+        p.h4{
+            color: #000;
+        }
+        ul.endpoints{
+            margin-top: 20px;
+            list-style: none;
+        }
+        li.point{
+            text-align: center;
+        }
+    }
+}
+
+footer.footer{
+    background-color: #000;
+    color: #fff;
+    padding: 30px;
+    margin-top: 50px;
+
+    p.copyright{
+        text-align: center;
+        margin-bottom: 0% !important;
+    }
+}
