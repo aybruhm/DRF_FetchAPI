@@ -1,0 +1,38 @@
+section.login_body {
+  background-color: #e7cbe7;
+  text-align: center;
+  padding: 50px;
+  height: 100vh;
+  background-image: url("../img/main-emoji.png");
+  background-position: center;
+}
+
+div.login_card {
+  margin-top: 30px !important;
+  background-image: -webkit-gradient(linear, right top, left top, from(#ca22ca), to(#26269c));
+  background-image: linear-gradient(to left, #ca22ca, #26269c);
+  width: 50%;
+  margin: auto;
+  border-radius: 20px;
+  border: 2px solid 46.27451%;
+}
+
+div.login_card p.h3 {
+  color: #fff;
+  padding-top: 30px;
+  font-size: 42px;
+  margin-bottom: 0% !important;
+  font-weight: 550;
+}
+
+@media screen and (max-width: 785px) {
+  section.login_body {
+    padding: 30px;
+    background-image: url("../img/main-emoji.png");
+    background-position: left;
+  }
+  div.login_card {
+    width: 100% !important;
+  }
+}
+/*# sourceMappingURL=login.css.map */

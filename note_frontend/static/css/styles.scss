@@ -1,55 +1,300 @@
+@import "./login.scss";
+@import "./register.scss";
+@import "./edit-thought.scss";
+
 *{
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
 }
 
-header.header{
-    background-color: #000;
 
-    nav.nav{
-        a.nav-link{
-            color: #fff !important;
-            font-size: 1.4rem;
-            font-weight: 600;
-        }
-    }
-}
-
-section.body{
+form{
     text-align: center;
-    padding-top: 50px;
+    display: block;
+    justify-content: center;
+    padding: 50px;
 
-    p.h2{
-        font-size: 42px;
-        color: #000;
+    label.form-label,
+    span.input-group-text{
+        color: #fff !important;
+        font-size: 18px;
         font-weight: 550;
     }
 
-    div.overview{
-        margin-top: 30px;
-        justify-content: center;
-        p.h4{
-            color: #000;
+    .input-group-text{
+        border-radius: 10px 0px 10px 10px !important;
+    }
+
+    .user_input,
+    .password_input{
+        border-radius: 0px 0px 10px 10px !important;
+        height: 40px !important;
+        background-color: transparent;
+        color: #fff;
+    }
+
+    .form-control{
+        color: #fff;
+    }
+
+    div.forgotten_password{
+        margin-bottom: 30px;
+        p.h6{
+            color: #fff;
         }
-        ul.endpoints{
-            margin-top: 20px;
-            list-style: none;
+        a{
+            color: #fff;
+            text-decoration: underline;
+            font-weight: 550;
+            margin-left: 5px;
         }
-        li.point{
-            text-align: center;
+    }
+
+    div.button_div{
+        margin-top: 10px;
+    }
+
+    button.btn{
+        border-radius: 20px;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 550;
+        background-image: linear-gradient(to left, rgb(202, 34, 202), rgb(38, 38, 156));
+    }
+
+    button.btn:hover{
+        color: #fff;
+    }
+}
+
+body.home_body{
+    background-image: url("../img/main-emoji.png");
+    background-position: contain;
+    background-color: #e7cbe7;
+}
+
+div.header_card{
+    background-image: linear-gradient(to left, rgb(202, 34, 202), rgb(38, 38, 156));
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 20px 20px 20px 20px;
+    
+    div.header_flex{
+        display: flex;
+        justify-content: space-between !important;
+    }
+
+    div.date{
+        color: #fff;
+        p.h5{
+            padding-top: 10px;
+            font-weight: 650;
+            font-size: 22px;
+            margin-bottom: 0% !important;
+        }
+        span.week,
+        span.month_year{
+            font-size: 18px;
+        }
+    }
+
+    img{
+        width: 50px;
+    }
+}
+
+main.home_body,
+main.edit_thought,
+main.publish_thought,
+main.profile{
+    margin-top: 50px;
+}
+
+div.profile_set{
+    p.h5{
+        padding-top: 10px !important;
+        padding-bottom: 8px !important;
+        margin-bottom: 0% !important;
+        color: #fff !important;
+        font-weight: 650;
+        font-size: 22px;
+    }
+}
+
+div.profile_signout{
+    p.h5{
+        padding-top: 10px !important;
+        padding-bottom: 8px !important;
+        margin-bottom: 0% !important;
+        svg{
+            color: #fff !important;
+            font-size: 22px;
         }
     }
 }
 
-footer.footer{
-    background-color: #000;
-    color: #fff;
-    padding: 30px;
-    margin-top: 50px;
+div.main_card,
+div.edit_card,
+div.profile_card{
+    background-image: linear-gradient(to left, rgb(202, 34, 202), rgb(38, 38, 156));
+    padding: 20px;
+    border-radius: 20px 20px 20px 20px;
 
-    p.copyright{
-        text-align: center;
-        margin-bottom: 0% !important;
+    p.h2{
+        color: #fff;
+        font-weight: 600;
+    }
+}
+
+div.profile_header{
+    text-align: center;
+    img{
+        width: 150px;
+        border: 5px solid #e7cbe7;
+        margin-bottom: 20px;
+    }
+}
+
+main.profile{
+    margin-top: 30px !important;
+}
+
+main.profile {
+    form{
+        input,
+        textarea{
+            color: #fff !important;
+        }
+        textarea{
+            margin-bottom: 0% !important;
+            padding-bottom: 0% !important;
+        }
+        input:focus,
+        textarea:focus{
+            color: #000 !important;
+            background-color: #e7cbe7 !important;
+        }
+    }
+}
+hr.hr{
+    color: #fff;
+    height: 5px;
+    border-radius: 20px;
+    width: 20%;
+}
+
+div.thoughts{
+    margin-top: 20px;
+    
+    div.col-md-4{
+        margin-bottom: 40px;
+    }
+
+    div.col-md-4:last-child{
+        margin-bottom: 0%;
+    }
+
+    div.thought{
+        margin-bottom: 40px;
+
+        p.h3{
+            margin-bottom: 15px;
+            color: #fff;
+            font-weight: 550;
+        }
+        p.h5{
+            color: #fff;
+        }
+        p.h6{
+            color: #fff;
+            padding-top: 10px;
+        }
+    }
+
+    div.thought_head{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    span.thought_meta{
+        a{
+            color: #fff;
+            margin-right: 5px;
+        }
+        a:last-child{
+            margin-right: 0%;
+        }
+    }
+
+    div.thought:last-child{
+        margin-bottom: 0%;
+    }
+}
+
+div.pag_body{
+    margin-top: 20px;
+}
+
+div.pag_card{
+    background-image: linear-gradient(to left, rgb(202, 34, 202), rgb(38, 38, 156));
+    padding: 10px;
+    border-radius: 10px;
+}
+
+ul.pag{
+    list-style: none;
+    padding: 0%;
+    margin: 0%;
+    display: flex;
+    justify-content: center;
+
+    a.pag-link{
+        margin-right: 20px;
+        font-size: 18px;
+        color: #fff;
+    }
+
+    a.pag-link.active{
+        font-weight: 550;
+        color: rgb(202, 34, 202) !important;
+        background-color: #e7cbe7;
+        padding: 5px;
+        border-radius: 5px;
+    }
+}
+
+nav.bottom_nav{
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+div.bottom_nav_card{
+    background-image: linear-gradient(to left, rgb(202, 34, 202), rgb(38, 38, 156));
+    padding: 10px;
+    border-radius: 20px 20px 20px 20px;
+
+    ul.nav{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    a.nav-link{
+        color: #fff;
+        font-weight: 550;
+        font-size: 18px;
+    }
+
+    svg{
+        font-size: 36px;
+    }
+}
+
+
+@media screen and (max-width:785px){
+    div.register_card p.h3,
+    div.login_card p.h3{
+        font-size: 30px;
+        padding-top: 40px;
     }
 }

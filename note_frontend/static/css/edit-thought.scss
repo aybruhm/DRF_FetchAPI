@@ -1,0 +1,65 @@
+form.edit_form{
+    padding: 0% !important;
+
+    div.col-md-12{
+        text-align: left;
+    }
+
+    label.form-label,
+    span.input-group-text{
+        color: #fff !important;
+        font-size: 18px;
+        font-weight: 550;
+    }
+
+    textarea.edit_textarea{
+        background-color: transparent;
+    }
+
+    div.col-md-12:nth-child(2){
+        margin-bottom: 20px;
+    }
+}
+
+button.edit_btn{
+    border-radius: 20px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 550;
+    background-image: linear-gradient(to left, rgb(202, 34, 202), rgb(38, 38, 156));
+}
+
+button.edit_btn:hover{
+    color: #fff;
+}
+
+// Confirm Delete
+
+p.confirm{
+    font-size: 24px;
+    color: #fff;
+    padding-bottom: 10px;
+}
+
+span.alert-danger{
+    color: rgb(228, 212, 212);
+    background-color: rgb(238, 9, 9);
+
+    svg{
+        font-size: 22px;
+    }
+}
+
+button.btn.no_btn,
+button.btn.yes_btn{
+    border-radius: 20px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 550;
+    background-image: linear-gradient(to left, rgb(202, 34, 202), rgb(38, 38, 156));
+}
+
+button.btn.no_btn:hover,
+button.btn.yes_btn:hover{
+    color: #fff;
+}
