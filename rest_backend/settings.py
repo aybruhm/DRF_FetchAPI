@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Apps
-    'note.apps.NoteConfig',
+    'note_restapi.apps.NoteRestapiConfig',
     'note_frontend.apps.NoteFrontendConfig',
     'rest_framework',
 ]
