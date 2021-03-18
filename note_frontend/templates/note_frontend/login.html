@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/6e47be172b.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="assets/css/mdb.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <title>Login - NotePad</title>
-</head>
-<body>
+{% extends "note_frontend/base.html" %}
 
+{% load static %}
+
+{% block content %}
     <section class="login_body">
         <div class="login_card card">
             <p class="h3">
@@ -23,20 +15,20 @@
                         <label for="validationCustomUsername" class="form-label">
                             Username:
                         </label>
-                      <div class="input-group">
+                    <div class="input-group">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
                         <input type="text" class="form-control user_input" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required="">
                         <div class="invalid-feedback">
-                          Please choose a username.
+                        Please choose a username.
                         </div>
-                      </div>
+                    </div>
                     </div>
 
                     <div class="col-md-12">
                         <label for="validationCustom03" class="form-label">
                             Password:
                         </label>
-                      <div class="input-group">
+                    <div class="input-group">
                         <span class="input-group-text" id="inputGroupPrepend">
                             <i class="fa fa-eye" aria-hidden="true"></i>
                         </span>
@@ -44,11 +36,11 @@
                         <div class="invalid-feedback">
                             Your password must be minimum of 8 characters.
                         </div>
-                      </div>
+                    </div>
                     </div>
 
                     <div class="col-12">
-                      <div class="forgotten_password">
+                    <div class="forgotten_password">
                             <p class="h6">
                                 Forgotten Password? <a href="http://">Click here</a>
                             </p>
@@ -61,8 +53,4 @@
             </div>
         </div>
     </section>
-
-    <script src="assets/js/mdb.min.js"></script>
-    <script src="assets/js/main.js"></script>
-</body>
-</html>
+{% endblock content %}
