@@ -2,6 +2,8 @@ from django.urls import path
 from .views import home, create_thought, update_thought, \
     delete_thought, login, register, profile
 
+app_name = "note"
+
 urlpatterns = [
     path('', home, name="home"),
     path('new-thought/', create_thought, name="new-thought"),

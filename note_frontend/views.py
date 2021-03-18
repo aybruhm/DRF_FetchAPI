@@ -1,8 +1,13 @@
 from django.shortcuts import render
+from .models import Note
 
 
 def home(request):
-    return render(request, "note_frontend/home.html")
+    notes = Note.objects.all()[:3]
+    context = {
+        'notes': notes
+    }
+    return render(request, "note_frontend/home.html", context)
 
 
 def create_thought(request):

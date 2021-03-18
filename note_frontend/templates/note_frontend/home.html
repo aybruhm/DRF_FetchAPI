@@ -12,99 +12,34 @@
               <hr class="hr">
               <div class="thoughts">
                   <div class="row">
-                      <div class="col-md-4">
-                          <div class="thought">
-                              <div class="thought_head">
-                                  <p class="h3">
-                                      Darkness
-                                  </p>
+                      {% for note in notes %}
+                        <div class="col-md-4">
+                            <div class="thought">
+                                <div class="thought_head">
+                                    <p class="h3">
+                                        {{ note.title }}
+                                    </p>
 
-                                  <span class="thought_meta">
-                                      <a href="">
-                                          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                      </a>
-                                      <a href="">
-                                          <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                      </a>
-                                  </span>
-                              </div>
+                                    <span class="thought_meta">
+                                        <a href="{% url "note:update-thought" %}">
+                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                        </a>
+                                        <a href="{% url "note:delete-thought" %}">
+                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                        </a>
+                                    </span>
+                                </div>
 
-                              <p class="h5">
-                                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                  Exercitationem quidem, facilis ducimus nam temporibus
-                                  repellat soluta illum facere maiores sint error aspernatur
-                                  iste in et quos natus nemo provident qui dolorum commodi
-                                  similique voluptatem itaque possimus? Nobis asperiores
-                                  velit modi.
-                              </p>
+                                <p class="h5">
+                                   {{ note.thought }}
+                                </p>
 
-                              <p class="h6">
-                                  Posted: <span class="published">Mar 13, 15:42</span>
-                              </p>
-                          </div>
-                      </div>
-                      <div class="col-md-4">
-                          <div class="thought">
-                              <div class="thought_head">
-                                  <p class="h3">
-                                      Darkness
-                                  </p>
-
-                                  <span class="thought_meta">
-                                      <a href="">
-                                          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                      </a>
-                                      <a href="">
-                                          <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                      </a>
-                                  </span>
-                              </div>
-
-                              <p class="h5">
-                                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                  Exercitationem quidem, facilis ducimus nam temporibus
-                                  repellat soluta illum facere maiores sint error aspernatur
-                                  iste in et quos natus nemo provident qui dolorum commodi
-                                  similique voluptatem itaque possimus? Nobis asperiores
-                                  velit modi.
-                              </p>
-
-                              <p class="h6">
-                                  Posted: <span class="published">Mar 13, 15:42</span>
-                              </p>
-                          </div>
-                      </div>
-                      <div class="col-md-4">
-                          <div class="thought">
-                              <div class="thought_head">
-                                  <p class="h3">
-                                      Darkness
-                                  </p>
-
-                                  <span class="thought_meta">
-                                      <a href="">
-                                          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                      </a>
-                                      <a href="">
-                                          <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                      </a>
-                                  </span>
-                              </div>
-
-                              <p class="h5">
-                                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                  Exercitationem quidem, facilis ducimus nam temporibus
-                                  repellat soluta illum facere maiores sint error aspernatur
-                                  iste in et quos natus nemo provident qui dolorum commodi
-                                  similique voluptatem itaque possimus? Nobis asperiores
-                                  velit modi.
-                              </p>
-
-                              <p class="h6">
-                                  Posted: <span class="published">Mar 13, 15:42</span>
-                              </p>
-                          </div>
-                      </div>
+                                <p class="h6">
+                                    Posted: <span class="published">{{ note.timestamp|date:"M Y, P" }}</span>
+                                </p>
+                            </div>
+                        </div>
+                      {% endfor %}
                   </div>
               </div>
           </div>
