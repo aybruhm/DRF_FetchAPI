@@ -10,12 +10,14 @@ from rest_framework import status
 @api_view(["GET", "POST"])
 def note_list(request):
     """
-    This view returns a list of all notes and also creates.
+    This view returns a list of notes.
     """
     notes = Note.objects.all()
     serializer = NoteSerializer(notes, many=True)
 
-    # This method creates a new note.
+    """
+    This method creates a new note.
+    """
     if request.method == "POST":
         serializer = NoteSerializer(data=request.data)
         if serializer.is_valid():
@@ -48,7 +50,7 @@ def note_detail(request, pk):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     """
-    This view deletes a note.
+    This method deletes a note.
     """
     if request.method == "DELETE":
         note.delete()
