@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Note
+from .forms import NoteCreateForm
 
 
 def home(request):
@@ -11,7 +12,20 @@ def home(request):
 
 
 def create_thought(request):
-    return render(request, "note_frontend/write-thought.html")
+    form = NoteCreateForm()
+
+    if request.method == "POST":
+        
+        form = NoteCreateForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("note:home")
+        return redirect("note:new-thought")
+
+    context = {
+        'form': form
+    }
+    return render(request, "note_frontend/write-thought.html", context)
 
 
 def update_thought(request):

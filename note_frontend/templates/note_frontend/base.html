@@ -12,29 +12,29 @@
     <title>Fetch API - DRF</title>
 </head>
 <body class="home_body">
-  <header class="home_header">
-     <div class="container-fluid">
-         <div class="header_card card">
-             <div class="header_flex">
-                 <div class="date">
-                     <p class="h5">
-                         Thur
-                     </p>
-                     <span class="week">
-                         11
-                     </span>
-                     <span class="month_year">
-                         Mar, 2021
-                     </span>
-                 </div>
+    <header class="home_header">
+        <div class="container-fluid">
+            <div class="header_card card">
+                <div class="header_flex">
+                    <div class="date">
+                        <p class="h5">
+                            Thur
+                        </p>
+                        <span class="week">
+                            11
+                        </span>
+                        <span class="month_year">
+                            Mar, 2021
+                        </span>
+                    </div>
 
-                 <div class="profile_picture">
-                     <img src="assets/img/avatar.png" alt="" class="img-responsive rounded-circle">
-                 </div>
-             </div>
-         </div>
-     </div>
- </header>
+                    <div class="profile_picture">
+                        <img src="{% static "img/avatar.png" %}" alt="" class="img-responsive rounded-circle">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
     {% block content %}
     {% endblock content %}
@@ -44,17 +44,17 @@
             <div class="bottom_nav_card card">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">
+                        <a class="nav-link active" href="{% url "note:home" %}">
                             <i class="fa fa-sticky-note-o" aria-hidden="true"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{% url "note:new-thought" %}">
                             <i class="fa fa-plus-circle" aria-hidden="true"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{% url "note:profile" %}">
                             <i class="fa fa-user-circle" aria-hidden="true"></i>
                         </a>
                     </li>

@@ -10,19 +10,17 @@ class NoteCreateForm(forms.ModelForm):
         model = Note
         fields = ['title', 'thought']
         widgets = {
-            'title': forms.TextInput(
-                attrs={
-                    'class': 'form-control user_input',
-                    'id': 'validationCustomUsername',
-                    'aria-describedby': 'inputGroupPrepend' 
-                    'required': "true",
+            'title': forms.TextInput(attrs={
+                'class': 'form-control user_input',
+                'id': 'validationCustomUsername',
+                'aria-describedby': 'inputGroupPrepend',
+                'required': "true",
                 }
             ),
-            'thought': forms.Textarea(
-                attrs={
-                    'class': 'form-control edit_textarea',
-                    'id': 'editThought',
-                    'rows': '3',
+            'thought': forms.Textarea(attrs={
+                'class': 'form-control edit_textarea',
+                'id': 'editThought',
+                'rows': '3',
                 }
             )
         }
