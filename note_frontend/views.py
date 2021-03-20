@@ -42,24 +42,66 @@ def update_thought(request, pk):
     except Note.DoesNotExist:
         return redirect("note:home")
 
-    # TODO:
-    # - import update_thought form
-    # - implement updat/post method
-    # - uhh?
+    """
+    TODO:
+    - import update_thought form
+    - implement update/post method
+    - uhh?
+    """
+    
     return render(request, "note_frontend/edit-thought.html")
 
 
 def delete_thought(request, pk):
+
+    """
+    TODO:
+    - try/except a single note
+    - call the delete method on it
+    - uhh?
+    """
+
     return render(request, "note_frontend/confirm-delete.html")
 
 
 def login(request):
+
+    """
+    TODO:
+    - import the login form
+    - implement post method
+    - check to see if the login form is valid
+    - if yes, validate, else; don't validate
+    - uhh?
+    """
+
     return render(request, "note_frontend/login.html")
 
 
 def register(request):
+
+    """
+    TODO:
+    - import the register form
+    - implement post method
+    - check to see if the register form is valid
+    - if yes, validate, else; don't validate
+    - uhh?
+    """
+
     return render(request, "note_frontend/register.html")
 
 
 def profile(request):
+
+    """
+    TODO:
+    - import the profile form
+    - add the request.user instance on the profile form
+    - implement post method
+    - check to see if the profile form is valid
+    - if yes, validate, else; don't validate
+    - uhh?
+    """
+
     return render(request, "note_frontend/profile.html")
