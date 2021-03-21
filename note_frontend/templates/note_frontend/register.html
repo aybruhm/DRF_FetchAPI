@@ -9,7 +9,8 @@
                 Create Account
             </p>
             <div class="register_form">
-                <form class="row g-3 needs-validation register_form">
+                <form class="row g-3 needs-validation register_form" method="POST">
+                {% csrf_token %}
 
                     <div class="col-md-12">
                         <label for="validationCustomUsername" class="form-label">
