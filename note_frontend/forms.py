@@ -55,8 +55,9 @@ class NoteUpdateForm(forms.ModelForm):
 
 class CreateUserForm(UserCreationForm):
     """
-    This class inherits from the base class *UserCreationForm*,
-    and creates a new user.
+    A form that inherits from the base *UserCreationForm*,
+    and creates a user, with no privileges, from the given 
+    username and password.
     """
     password1 = forms.CharField(
         widget=forms.PasswordInput(attrs={
@@ -81,6 +82,7 @@ class CreateUserForm(UserCreationForm):
         fields = ['username', 'password1', 'password2']
         widgets = {
         'username': forms.TextInput(attrs={
+            'autocomplete': 'username',
             'class': 'form-control user_input',
             'id': 'validationCustomUsername',
             'aria-describedby': 'inputGroupPrepend',
