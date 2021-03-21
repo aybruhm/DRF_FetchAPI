@@ -53,10 +53,13 @@ def update_thought(request, pk):
 
 
 def delete_thought(request, pk):
+    try:
+        note = Note.objects.get(id=pk)
+    except Note.DoesNotExist:
+        return redirect("note:home")
 
     """
     TODO:
-    - try/except a single note
     - call the delete method on it
     - uhh?
     """
