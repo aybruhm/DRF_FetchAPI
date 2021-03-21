@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Note
-from .forms import NoteCreateForm
+from .forms import NoteCreateForm, NoteUpdateForm
 
 
 def home(request):
@@ -42,14 +42,19 @@ def update_thought(request, pk):
     except Note.DoesNotExist:
         return redirect("note:home")
 
-    """
-    TODO:
-    - import update_thought form
-    - implement update/post method
-    - uhh?
-    """
-    
-    return render(request, "note_frontend/edit-thought.html")
+    form = NoteUpdateForm()
+
+    if request.method == "POST":
+        form = NoteUpdateForm(data=request.POST, instance=note)
+        if form.is_valid():
+            form.save()
+            return redirect("note:update-thought")
+        return redirect("note:home")
+
+    context = {
+        'form': form
+    }
+    return render(request, "note_frontend/edit-thought.html", context)
 
 
 def delete_thought(request, pk):
