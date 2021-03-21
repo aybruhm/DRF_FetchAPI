@@ -58,6 +58,24 @@ class CreateUserForm(UserCreationForm):
     This class inherits from the base class *UserCreationForm*,
     and creates a new user.
     """
+    password1 = forms.CharField(
+        widget=forms.PasswordInput(attrs={
+            'autocomplete': 'new-password',
+            'class': 'form-control password_input',
+            'id': 'confirmPassword1',
+            'required': 'true',
+            }
+        ),
+    )
+    password2 = forms.CharField(
+        widget=forms.PasswordInput(attrs={
+            'autocomplete': 'new-password',
+            'class': 'form-control password_input',
+            'id': 'confirmPassword2',
+            'required': 'true',
+            }
+        ),
+    )
     class Meta:
         model = User
         fields = ['username', 'password1', 'password2']
@@ -66,18 +84,6 @@ class CreateUserForm(UserCreationForm):
             'class': 'form-control user_input',
             'id': 'validationCustomUsername',
             'aria-describedby': 'inputGroupPrepend',
-            'required': 'true',
-            }
-        ),
-        'password1': forms.PasswordInput(attrs={
-            'class': 'form-control password_input',
-            'id': 'validationCustom03',
-            'required': 'true',
-            }
-        ),
-        'password2': forms.PasswordInput(attrs={
-            'class': 'form-control password_input',
-            'id': 'validationCustom03',
             'required': 'true',
             }
         ),
