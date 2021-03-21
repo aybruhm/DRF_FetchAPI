@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import home, create_thought, update_thought, \
-    delete_thought, login_page, register, profile
+    delete_thought, login_page, register_page, profile_page
 
 app_name = "note"
 
@@ -10,6 +10,6 @@ urlpatterns = [
     path('update-thought/<int:pk>/', update_thought, name="update-thought"),
     path('delete-thought/<int:pk>/', delete_thought, name="delete-thought"),
     path('login/', login_page, name="login"),
-    path('register/', register, name="register"),
-    path('profile/', profile, name="profile"),
+    path('register/', register_page, name="register"),
+    path('profile/', profile_page, name="profile"),
 ]

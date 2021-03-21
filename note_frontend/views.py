@@ -101,7 +101,7 @@ def login_page(request):
     return render(request, "note_frontend/login.html", context)
 
 
-def register(request):
+def register_page(request):
     form = CreateUserForm()
 
     if request.method == "POST":
@@ -119,7 +119,7 @@ def register(request):
     return render(request, "note_frontend/register.html", context)
 
 
-def profile(request):
+def profile_page(request):
 
     """
     TODO:
