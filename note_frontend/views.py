@@ -22,14 +22,16 @@ def create_thought(request):
         
         form = NoteCreateForm(request.POST)
         if form.is_valid():
-            title = form.cleaned_data["title"]
-            thought = form.cleaned_data["thought"]
+            title = form.cleaned_data.get("title")
+            thought = form.cleaned_data.get("thought")
+            print(title, thought)
             note = Note(
                 title=title,
                 thought=thought,
                 author=request.user,
             )
             note.save()
+            messages.success(request, f"Yes, {request.user.username}, you finally published your thought.")
             return redirect("note:home")
         return redirect("note:new-thought")
 
