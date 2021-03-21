@@ -108,7 +108,7 @@ def register_page(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, "Your account has successfully be created.")
+            messages.success(request, "Your account has successfully been created.")
             return redirect("note:login")
         return redirect("note:register")
 
