@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Note
-from .forms import NoteCreateForm, NoteUpdateForm, CreateUserForm
+from .forms import NoteCreateForm, NoteUpdateForm, \
+    CreateUserForm, LogUserForm
 
 
 def home(request):
@@ -72,17 +73,20 @@ def delete_thought(request, pk):
 
 
 def login(request):
+    form = LogUserForm()
 
-    """
-    TODO:
-    - import the login form
-    - implement post method
-    - check to see if the login form is valid
-    - if yes, validate, else; don't validate
-    - uhh?
-    """
+    if request.method == "POST":
+        form = LogUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("note:profile")
+        return redirect("note:login")
 
-    return render(request, "note_frontend/login.html")
+    context = {
+        'form': form
+    }
+
+    return render(request, "note_frontend/login.html", context)
 
 
 def register(request):
