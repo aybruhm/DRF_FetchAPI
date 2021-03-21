@@ -118,3 +118,11 @@ class LogUserForm(forms.Form):
             }
         )
     )
+
+
+class UpdateUserForm(forms.ModelForm):
+    """
+    This form updates a user profile, from the given 
+    username and bio fields.
+    """
+    pass
