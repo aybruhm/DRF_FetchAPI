@@ -13,3 +13,8 @@ class Note(models.Model):
 
     def __str__(self):
         return self.author.username
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.DO_NOTHING)
+    bio = models.TextField(max_length=350)
