@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from .models import Note
 from .forms import NoteCreateForm, NoteUpdateForm, \
     CreateUserForm, LogUserForm
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 
 
 def home(request):
@@ -72,14 +74,24 @@ def delete_thought(request, pk):
     return render(request, "note_frontend/confirm-delete.html")
 
 
-def login(request):
+def login_page(request):
     form = LogUserForm()
 
     if request.method == "POST":
         form = LogUserForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect("note:profile")
+            print(form)
+            username = form.cleaned_data.get("username")
+            password = form.cleaned_data.get("password")
+            user = authenticate(
+                request, username=username, password=password
+            )
+
+            if user is not None:
+                login(request, user)
+                messages.success(request, f"{username}, you are logged in.")
+                return redirect("note:profile")
+            messages.error(request, f"Oops, the username {username} does not exist in our database. Please try again.")
         return redirect("note:login")
 
     context = {
@@ -96,6 +108,7 @@ def register(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, "Your account has successfully be created.")
             return redirect("note:login")
         return redirect("note:register")
 
