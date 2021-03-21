@@ -21,10 +21,10 @@
                                     </p>
 
                                     <span class="thought_meta">
-                                        <a href="{% url "note:update-thought" %}">
+                                        <a href="{{ note.get_update_url }}">
                                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                         </a>
-                                        <a href="{% url "note:delete-thought" %}">
+                                        <a href="{{ note.get_delete_url }}">
                                             <i class="fa fa-trash-o" aria-hidden="true"></i>
                                         </a>
                                     </span>

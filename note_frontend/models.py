@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from django.urls import reverse
 
 class Note(models.Model):
     title = models.CharField(max_length=100)
@@ -13,6 +13,12 @@ class Note(models.Model):
 
     def __str__(self):
         return self.author.username
+
+    def get_update_url(self):
+        return reverse('note:update-thought', args=[str(self.pk)])
+
+    def get_delete_url(self):
+        return reverse('note:delete-thought', args=[str(self.pk)])
 
 
 class Profile(models.Model):
