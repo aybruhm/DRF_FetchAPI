@@ -64,10 +64,9 @@ def delete_thought(request, pk):
         return redirect("note:home")
 
     """
-    TODO:
-    - call the delete method on it
-    - uhh?
+    This view delete a single note
     """
+    note.objects.delete()
 
     return render(request, "note_frontend/confirm-delete.html")
 
