@@ -9,8 +9,8 @@
                 Login
             </p>
             <div class="login_form">
-                <form class="row g-3 needs-validation login_form">
-
+                <form class="row g-3 needs-validation login_form" method="POST">
+                {% csrf_token %}
                     <div class="col-md-12">
                         <label for="validationCustomUsername" class="form-label">
                             Username:
