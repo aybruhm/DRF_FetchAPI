@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Note
-from .forms import NoteCreateForm, NoteUpdateForm
+from .forms import NoteCreateForm, NoteUpdateForm, CreateUserForm
 
 
 def home(request):
@@ -86,17 +86,20 @@ def login(request):
 
 
 def register(request):
+    form = CreateUserForm()
 
-    """
-    TODO:
-    - import the register form
-    - implement post method
-    - check to see if the register form is valid
-    - if yes, validate, else; don't validate
-    - uhh?
-    """
+    if request.method == "POST":
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("note:login")
+        return redirect("note:register")
 
-    return render(request, "note_frontend/register.html")
+    context = {
+        'form': form
+    }
+
+    return render(request, "note_frontend/register.html", context)
 
 
 def profile(request):
