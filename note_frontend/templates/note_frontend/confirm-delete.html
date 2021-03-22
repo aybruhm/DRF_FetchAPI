@@ -3,40 +3,53 @@
 {% load static %}
 
 {% block content %}
-    <main class="edit_thought">
-        <div class="container-fluid">
-            <div class="edit_card card">
-                <p class="h2">
-                    Delete Thought
-                </p>
-                <hr class="hr">
-                <div class="edit_form">
-                    <div class="login_form">
-                        <form class="row g-3 needs-validation edit_form">
-        
-                            <div class="col-12" style="margin-bottom: 20px;">
-                                <p class="confirm">
-                                    Are you sure you want to completely remove this thought?
-                                </p>
-                                <span class="alert alert-danger">
-                                    You can't undo this. <i class="fas fa-sad-tear    "></i>
-                                </span>
-                            </div>
-        
-                            <div class="col-6 confirm_button">
-                                <button class="btn no_btn btn-block text-white" type="submit">
-                                    No, please
-                                </button>
-                            </div>
-                            <div class="col-6">
-                                <button class="btn yes_btn btn-block text-white" type="submit">
-                                    Yes, sure
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+
+<style>
+a.btn.no_btn,
+a.btn.yes_btn{
+    border-radius: 20px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 550;
+    background-image: -webkit-gradient(linear, right top, left top, from(#ca22ca), to(#26269c));
+    background-image: linear-gradient(to left, #ca22ca, #26269c);
+}
+</style>
+
+<main class="edit_thought">
+    <div class="container-fluid">
+        <div class="edit_card card">
+            <p class="h2">
+                Delete Thought
+            </p>
+            <hr class="hr">
+            <div class="edit_form">
+                <div class="login_form">
+                    <form class="row g-3 needs-validation edit_form">
+    
+                        <div class="col-12" style="margin-bottom: 20px;">
+                            <p class="confirm">
+                                Are you sure you want to completely remove this thought?
+                            </p>
+                            <span class="alert alert-danger">
+                                You can't undo this. <i class="fas fa-sad-tear    "></i>
+                            </span>
+                        </div>
+    
+                        <div class="col-6 confirm_button">
+                            <a href="{% url "note:home" %}" class="btn no_btn btn-block text-white">
+                                No, please
+                            </a>
+                        </div>
+                        <div class="col-6">
+                            <a href="{{ note.get_delete_url }}" class="btn yes_btn btn-block text-white">
+                                Yes, sure
+                            </a>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
+</main>
 {% endblock content %}
