@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm,\
     AuthenticationForm
 from django.contrib.auth.models import User
-from .models import Note
+from .models import Note, Profile
 
 
 class NoteCreateForm(forms.ModelForm):
@@ -120,9 +120,39 @@ class LogUserForm(forms.Form):
     )
 
 
-class UpdateUserForm(forms.ModelForm):
+class UpdateProfileForm(forms.ModelForm):
     """
     This form updates a user profile, from the given 
     username and bio fields.
     """
-    pass
+    class Meta:
+        model = Profile
+        fields = ['bio']
+        widgets = {
+            'bio': forms.Textarea(attrs={
+                'class': 'form-control edit_textarea',
+                'id': 'editBio',
+                'rows': '3',
+            }
+        )
+    }
+
+
+class UpdateUserForm(forms.ModelForm):
+    """
+    This form updates a user, from the given 
+    username field.
+    """
+    class Meta:
+        model = User
+        fields = ['username']
+        widgets = {
+            'username': forms.TextInput(attrs={
+            'autocomplete': 'username',
+            'class': 'form-control user_input',
+            'id': 'validationCustomUsername',
+            'aria-describedby': 'inputGroupPrepend',
+            'required': 'true',
+            }
+        )
+    }
