@@ -54,7 +54,7 @@ def update_thought(request, pk):
         form = NoteUpdateForm(data=request.POST, instance=note)
         if form.is_valid():
             form.save()
-            return redirect("note:update-thought")
+            return redirect("note:home")
         return redirect("note:home")
 
     context = {
@@ -64,17 +64,30 @@ def update_thought(request, pk):
 
 
 def delete_thought(request, pk):
-    try:
-        note = Note.objects.get(id=pk)
-    except Note.DoesNotExist:
-        return redirect("note:home")
-
     """
     This view delete a single note
     """
-    note.objects.delete()
+    try:
+        note = Note.objects.get(id=pk)
+        note.delete()
+        messages.success(request, f"{note} has successfully been deleted.")
+        return redirect("note:home")
+    except Note.DoesNotExist:
+        return redirect("note:home")
 
-    return render(request, "note_frontend/confirm-delete.html")
+
+def confirm_delete(request, pk):
+    note = Note.objects.get(id=pk)
+
+    """
+    Calls the delete_thought logic
+    """
+    delete_thought(request, pk)
+
+    context = {
+        'note': note
+    }
+    return render(request, "note_frontend/confirm-delete.html", context)
 
 
 def login_page(request):
