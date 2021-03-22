@@ -22,6 +22,15 @@ p.success {
     width: 100% !important;
     font-weight: 600;
 }
+
+a.btn {
+    border-radius: 20px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 550;
+    background-image: -webkit-gradient(linear, right top, left top, from(#ca22ca), to(#26269c));
+    background-image: linear-gradient(to left, #26269c, #ca22ca);
+}
 </style>
 
 <main class="profile">
@@ -73,6 +82,13 @@ p.success {
                     </div>
                 </div>
             </form>
+            <div class="col-12">
+                <div class="col-12 mt-2">
+                    <a href="{% url "note:logout" %}" class="btn btn-block bg-black text-white">
+                        Logout
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </main>

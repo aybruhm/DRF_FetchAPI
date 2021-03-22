@@ -5,8 +5,10 @@ from .forms import NoteCreateForm, NoteUpdateForm, \
         UpdateUserForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def home(request):
     notes = Note.objects.all()[:3]
     context = {
@@ -15,6 +17,7 @@ def home(request):
     return render(request, "note_frontend/home.html", context)
 
 
+@login_required
 def create_thought(request):
     form = NoteCreateForm()
     print(request.user)
@@ -42,6 +45,7 @@ def create_thought(request):
     return render(request, "note_frontend/write-thought.html", context)
 
 
+@login_required
 def update_thought(request, pk):
     try:
         note = Note.objects.get(id=pk)
@@ -63,6 +67,7 @@ def update_thought(request, pk):
     return render(request, "note_frontend/edit-thought.html", context)
 
 
+@login_required
 def delete_thought(request, pk):
     """
     This view delete a single note
@@ -76,6 +81,7 @@ def delete_thought(request, pk):
         return redirect("note:home")
 
 
+@login_required
 def confirm_delete(request, pk):
     note = Note.objects.get(id=pk)
 
@@ -88,6 +94,11 @@ def confirm_delete(request, pk):
         'note': note
     }
     return render(request, "note_frontend/confirm-delete.html", context)
+
+
+def logout_page(request):
+    logout(request)
+    return redirect("note:login")
 
 
 def login_page(request):
@@ -135,6 +146,7 @@ def register_page(request):
     return render(request, "note_frontend/register.html", context)
 
 
+@login_required
 def profile_page(request):
     u_form = UpdateUserForm(instance=request.user)
     p_form = UpdateProfileForm(instance=request.user.profile)
