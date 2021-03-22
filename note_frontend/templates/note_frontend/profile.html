@@ -39,7 +39,8 @@ p.success {
             <img src="{% static "img/avatar.png" %}" alt="" class="rounded-circle img-responsive">
         </div>
         <div class="profile_card card">
-            <form class="row g-3 needs-validation edit_form">
+            <form class="row g-3 needs-validation edit_form" method="POST">
+                {% csrf_token %}
     
                 <div class="col-md-12">
                     <label for="validationCustomUsername" class="form-label">
@@ -49,7 +50,8 @@ p.success {
                         <span class="input-group-text" id="inputGroupPrepend">
                             <i class="fa fa-user-circle-o" aria-hidden="true"></i>
                         </span>
-                        <input type="text" value="Abram" class="form-control user_input" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required="">
+                        {{ u_form.username }}
+                        <!-- <input type="text" value="Abram" class="form-control user_input" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required=""> -->
                     </div>
                 </div>
 
@@ -58,7 +60,8 @@ p.success {
                         <label for="validationBio" class="form-label">
                             Who are you:
                         </label>
-                        <textarea class="form-control edit_textarea" name="" id="editBio" rows="3"></textarea>
+                        {{ p_form.bio }}
+                        <!-- <textarea class="form-control edit_textarea" name="" id="editBio" rows="3"></textarea> -->
                     </div>
                 </div>
 
