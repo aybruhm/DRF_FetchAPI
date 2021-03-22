@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import Note
 from .forms import NoteCreateForm, NoteUpdateForm, \
-    CreateUserForm, LogUserForm
+    CreateUserForm, LogUserForm, UpdateProfileForm, \
+        UpdateUserForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
@@ -122,15 +123,24 @@ def register_page(request):
 
 
 def profile_page(request):
+    p_form = UpdateProfileForm()
+    u_form = UpdateUserForm()
 
-    """
-    TODO:
-    - import the profile form
-    - add the request.user instance on the profile form
-    - implement post method
-    - check to see if the profile form is valid
-    - if yes, validate, else; don't validate
-    - uhh?
-    """
+    if request.method == "POST":
+        p_form = UpdateProfileForm(instance=request.user.bio, data=request.POST)
+        u_form = UpdateUserForm(instance=request.user.username, data=request.POST)
 
-    return render(request, "note_frontend/profile.html")
+        if p_form.is_valid() and u_form.is_valid():
+            username = u_form.cleaned_data.get("username")
+            p_form.user = username
+            p_form.save()
+            messages.success(request, f"{username}, you profile has successfully been updated.")
+            return redirect("note:profile")
+        return redirect("note:profile")
+
+    context = {
+        'p_form': p_form,
+        'u_form': u_form
+    }
+
+    return render(request, "note_frontend/profile.html", context)
