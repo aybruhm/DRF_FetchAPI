@@ -123,12 +123,12 @@ def register_page(request):
 
 
 def profile_page(request):
-    p_form = UpdateProfileForm()
-    u_form = UpdateUserForm()
+    u_form = UpdateUserForm(instance=request.user)
+    p_form = UpdateProfileForm(instance=request.user.profile)
 
     if request.method == "POST":
-        p_form = UpdateProfileForm(instance=request.user.bio, data=request.POST)
-        u_form = UpdateUserForm(instance=request.user.username, data=request.POST)
+        p_form = UpdateProfileForm(instance=request.user.profile, data=request.POST)
+        u_form = UpdateUserForm(instance=request.user, data=request.POST)
 
         if p_form.is_valid() and u_form.is_valid():
             username = u_form.cleaned_data.get("username")
