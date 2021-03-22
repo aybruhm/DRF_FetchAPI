@@ -123,7 +123,7 @@ class LogUserForm(forms.Form):
 class UpdateProfileForm(forms.ModelForm):
     """
     This form updates a user profile, from the given 
-    username and bio fields.
+    bio and profile_picture fields.
     """
     class Meta:
         model = Profile
