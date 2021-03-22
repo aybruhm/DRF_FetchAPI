@@ -48,7 +48,7 @@ def update_thought(request, pk):
     except Note.DoesNotExist:
         return redirect("note:home")
 
-    form = NoteUpdateForm()
+    form = NoteUpdateForm(instance=note)
 
     if request.method == "POST":
         form = NoteUpdateForm(data=request.POST, instance=note)
