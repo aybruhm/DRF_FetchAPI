@@ -30,13 +30,7 @@ class Profile(models.Model):
     profile_picture = models.ImageField(upload_to='users', blank=True, null=True)
     bio = models.TextField(max_length=350)
 
-    """
-    TODO:
-    - install Pillow
-    - uncomment profile column
-    - uncomment the pillow import
-    """
-
+    
     def __str__(self):
         return self.user.username
 
