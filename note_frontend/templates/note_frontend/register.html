@@ -3,6 +3,24 @@
 {% load static %}
 
 {% block content %}
+
+<style>
+    div.meta-links{
+        margin-bottom: 30px;
+    }
+
+    div.meta-links p.h6{
+        color: #fff;
+    }
+
+    div.meta-links p.h6 a{
+        color: #fff !important;
+        text-decoration: underline;
+        font-weight: 550;
+        margin-left: 5px;
+    }
+</style>
+
     <section class="register_body">
         <div class="register_card card">
             <p class="h3">
@@ -59,6 +77,12 @@
                     </div>
 
                     <div class="col-12">
+                        <div class="meta-links">
+                            <p class="h6">
+                                Have an account, already?
+                                <a href="{% url "note:login" %}">Login</a>
+                            </p>
+                        </div>
                         <div class="button_div">
                             <button class="btn btn-block" type="submit">register</button>
                         </div>

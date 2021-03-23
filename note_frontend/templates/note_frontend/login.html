@@ -22,6 +22,10 @@ p.success {
     width: 100% !important;
     font-weight: 600;
 }
+
+div.meta-links{
+    margin-bottom: 30px;
+}
 </style>
 
 <section class="login_body">
@@ -72,13 +76,18 @@ p.success {
                 </div>
 
                 <div class="col-12">
-                <div class="forgotten_password">
-                        <p class="h6">
-                            Forgotten Password? <a href="http://">Click here</a>
-                        </p>
-                    </div>
-                    <div class="col-12">
-                        <button class="btn btn-block" type="submit">Login</button>
+                    <div class="forgotten_password">
+                        <div class="meta-links">
+                            <p class="h6">
+                                Forgotten Password? <a href="http://">Click here</a>
+                            </p>
+                            <p class="h6">
+                                Don't have an account? <a href="{% url "note:register" %}">Create Now</a>
+                            </p>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-block" type="submit">Login</button>
+                        </div>
                     </div>
                 </div>
             </form>
