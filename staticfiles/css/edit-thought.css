@@ -1,0 +1,66 @@
+form.edit_form {
+  padding: 0% !important;
+}
+
+form.edit_form div.col-md-12 {
+  text-align: left;
+}
+
+form.edit_form label.form-label,
+form.edit_form span.input-group-text {
+  color: #fff !important;
+  font-size: 18px;
+  font-weight: 550;
+}
+
+form.edit_form textarea.edit_textarea {
+  background-color: transparent;
+}
+
+form.edit_form div.col-md-12:nth-child(2) {
+  margin-bottom: 20px;
+}
+
+button.edit_btn {
+  border-radius: 20px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 550;
+  background-image: -webkit-gradient(linear, right top, left top, from(#ca22ca), to(#26269c));
+  background-image: linear-gradient(to left, #ca22ca, #26269c);
+}
+
+button.edit_btn:hover {
+  color: #fff;
+}
+
+p.confirm {
+  font-size: 24px;
+  color: #fff;
+  padding-bottom: 10px;
+}
+
+span.alert-danger {
+  color: #e4d4d4;
+  background-color: #ee0909;
+}
+
+span.alert-danger svg {
+  font-size: 22px;
+}
+
+button.btn.no_btn,
+button.btn.yes_btn {
+  border-radius: 20px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 550;
+  background-image: -webkit-gradient(linear, right top, left top, from(#ca22ca), to(#26269c));
+  background-image: linear-gradient(to left, #ca22ca, #26269c);
+}
+
+button.btn.no_btn:hover,
+button.btn.yes_btn:hover {
+  color: #fff;
+}
+/*# sourceMappingURL=edit-thought.css.map */
