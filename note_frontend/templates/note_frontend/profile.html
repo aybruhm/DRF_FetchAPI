@@ -45,7 +45,7 @@ a.btn {
         {% endif %}
 
         <div class="profile_header">
-            <img src="{% static "img/avatar.png" %}" alt="" class="rounded-circle img-responsive">
+            <img src="{{ user.profile.profile_picture.url }}" alt="" class="rounded-circle img-responsive">
         </div>
         <div class="profile_card card">
             <form class="row g-3 needs-validation edit_form" method="POST">

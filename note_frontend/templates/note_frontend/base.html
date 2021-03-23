@@ -29,8 +29,12 @@
                     </div>
 
                     <div class="profile_picture">
-                        <img src="{% static "img/avatar.png" %}" alt="" class="img-responsive rounded-circle">
-                    </div>
+                        {% if user.is_authenticated %}
+                            <img src="{{ user.profile.profile_picture.url }}" alt="" class="img-responsive rounded-circle">
+                        {% else %}
+                            <img src="{% static "img/avatar.png" %}" alt="" class="img-responsive rounded-circle">
+                        {% endif %}
+                        </div>
                 </div>
             </div>
         </div>
