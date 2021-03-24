@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'zzs1s2q2xawl25oj!+jam(-zub02dpm9-^y073al)t3*r0bjum'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["thinkpad-django.herokuapp.com", "127.0.0.1"]
 
 
 # Application definition
@@ -84,13 +84,24 @@ WSGI_APPLICATION = 'rest_backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3'
+if DEBUG is True:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3'
+        }
     }
-}
-
+    
+elif DEBUG is False:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'd22mi9dq3htk8r',
+            'USER': 'rbnjpidzpwvyar',
+            'HOST': 'ec2-34-247-118-233.eu-west-1.compute.amazonaws.com',
+            'PASSWORD': '03d442dc6be28eab6690ae7f1100036b6f43cd24b1dbad2d46cf5e1ede3f8de0',
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
