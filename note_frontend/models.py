@@ -35,13 +35,13 @@ class Profile(models.Model):
         return self.user.username
 
       # Resize User Profile Picture 
-    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
-        super().save()
-        profile_picture = Image.open(self.profile_picture.path)
-        if profile_picture.height > 300 or profile_picture.width > 300:
-            output_size = (300, 300)
-            profile_picture.thumbnail(output_size)
-        print(profile_picture)
+    # def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
+    #     super().save()
+    #     profile_picture = Image.open(self.profile_picture.path)
+    #     if profile_picture.height > 300 or profile_picture.width > 300:
+    #         output_size = (300, 300)
+    #         profile_picture.thumbnail(output_size)
+    #     print(profile_picture)
 
 
 @receiver(post_save, sender=User)

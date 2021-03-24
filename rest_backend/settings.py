@@ -145,9 +145,6 @@ LOGIN_URL = '/login/'
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIR = [
-    "rest_backend/note_frontend/static"
-]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 MEDIA_URL = '/media/'
