@@ -147,7 +147,7 @@ LOGIN_URL = '/login/'
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / "staticfiles"
+    BASE_DIR / "note_frontend/static"
 ]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
