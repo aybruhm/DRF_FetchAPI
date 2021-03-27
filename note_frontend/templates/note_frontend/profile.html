@@ -31,6 +31,16 @@ a.btn {
     background-image: -webkit-gradient(linear, right top, left top, from(#ca22ca), to(#26269c));
     background-image: linear-gradient(to left, #26269c, #ca22ca);
 }
+
+div.upload-profile{
+   color: #fff !important;
+}
+
+div.upload-profile a{
+    color: #fff !important;
+    text-decoration: underline !important;
+    font-weight: 550;
+}
 </style>
 
 <main class="profile">
@@ -48,7 +58,7 @@ a.btn {
             <img src="{{ user.profile.profile_picture.url }}" alt="" class="rounded-circle img-responsive">
         </div>
         <div class="profile_card card">
-            <form class="row g-3 needs-validation edit_form" method="POST">
+            <form class="row g-3 needs-validation edit_form" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
     
                 <div class="col-md-12">
@@ -61,6 +71,18 @@ a.btn {
                         </span>
                         {{ u_form.username }}
                         <!-- <input type="text" value="Abram" class="form-control user_input" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required=""> -->
+                    </div>
+                </div>
+                
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="validationProfileUpload" class="form-label">
+                            Upload:
+                        </label> <br/>
+
+                        <div class="upload-profile">
+                            {{ p_form.profile_picture }}
+                        </div>
                     </div>
                 </div>
 
