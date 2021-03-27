@@ -10,7 +10,9 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def home(request):
-    notes = Note.objects.all()[:3]
+    notes = Note.objects.filter(
+        author__username=request.user
+    )[:3]
     context = {
         'notes': notes
     }
@@ -152,7 +154,7 @@ def profile_page(request):
     p_form = UpdateProfileForm(instance=request.user.profile)
 
     if request.method == "POST":
-        p_form = UpdateProfileForm(instance=request.user.profile, data=request.POST)
+        p_form = UpdateProfileForm(request.POST, request.FILES, instance=request.user.profile)
         u_form = UpdateUserForm(instance=request.user, data=request.POST)
 
         if p_form.is_valid() and u_form.is_valid():
