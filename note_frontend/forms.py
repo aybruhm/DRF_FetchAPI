@@ -125,9 +125,10 @@ class UpdateProfileForm(forms.ModelForm):
     This form updates a user profile, from the given 
     bio and profile_picture fields.
     """
+    profile_picture = forms.FileField()
     class Meta:
         model = Profile
-        fields = ['bio']
+        fields = ['bio', 'profile_picture']
         widgets = {
             'bio': forms.Textarea(attrs={
                 'class': 'form-control edit_textarea',
