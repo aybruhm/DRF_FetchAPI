@@ -27,7 +27,7 @@ class Note(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.DO_NOTHING)
-    profile_picture = models.ImageField(upload_to='users', blank=True, null=True)
+    profile_picture = models.ImageField(default="static/img/avatar.png", upload_to='users', blank=True, null=True)
     bio = models.TextField(max_length=350)
 
 
@@ -48,6 +48,7 @@ class Profile(models.Model):
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
+        instance.profile.save()
 
 
 # @receiver(post_save, sender=User)
